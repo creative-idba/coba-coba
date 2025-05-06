@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Cashier App</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    background: #f5f5f5;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .app-container {
+    width: 360px;
+    height: 640px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Header */
+  header {
+    background: #00796b;
+    color: white;
+    padding: 18px 24px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    user-select: none;
+  }
+
+  /* Product input area */
+  .product-input-section {
+    padding: 16px 20px;
+    background: #e0f2f1;
+    display: flex;
+    gap: 12px;
+  }
+  .product-input-section input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .product-input-section button {
+    background: #00796b;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,121,107,0.5);
+    transition: background 0.3s ease;
+  }
+  .product-input-section button:hover {
+    background: #004d40;
+  }
+
+  /* Items list */
+  .items-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 12px;
+    border-radius: 12px;
+    background: #f0f4f3;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .item-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #00796b;
+  }
+  .item-qty-price {
+    display: flex;
+    gap: 12px;
+    font-size: 15px;
+    color: #555;
+  }
+
+  /* Total and payment section */
+  .checkout-section {
+    background: #e0f2f1;
+    padding: 20px;
+    border-top: 2px solid #00796b;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: 700;
+    color: #004d40;
+  }
+  .payment-buttons {
+    display: flex;
+    gap: 16px;
+  }
+  .payment-buttons button {
+    flex: 1;
+    padding: 14px 0;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0,121,107,0.6);
+    transition: background 0.3s ease;
+  }
+  .btn-cash {
+    background: #388e3c;
+  }
+  .btn-cash:hover {
+    background: #1b5e20;
+  }
+  .btn-card {
+    background: #00796b;
+  }
+  .btn-card:hover {
+    background: #004d40;
+  }
+  
+  /* Scrollbar styling for items list */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #e0f2f1;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00796b;
+    border-radius: 10px;
+  }
+
+</style>
+</head>
+<body>
+  <div class="app-container" role="main" aria-label="Cashier Application">
+    <header>
+      Cashier App
+    </header>
+    <section class="product-input-section" aria-label="Product input">
+      <input type="text" placeholder="Scan or enter product code" aria-label="Product code input" disabled />
+      <button type="button" aria-disabled="true" disabled>Add</button>
+    </section>
+    <section class="items-list" aria-label="List of items">
+      <div class="item">
+        <div class="item-name">Apple</div>
+        <div class="item-qty-price">
+          <span>2 x</span>
+          <span>$1.00</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-name">Banana</div>
+        <div class="item-qty-price">
+          <span>3 x</span>
+          <span>$0.60</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-name">Milk</div>
+        <div class="item-qty-price">
+          <span>1 x</span>
+          <span>$2.50</span>
+        </div>
+      </div>
+    </section>
+    <section class="checkout-section" aria-label="Checkout section">
+      <div class="total-row">
+        <span>Total:</span>
+        <span>$6.30</span>
+      </div>
+      <div class="payment-buttons" role="group" aria-label="Choose payment method">
+        <button class="btn-cash" type="button">Cash</button>
+        <button class="btn-card" type="button">Card</button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
