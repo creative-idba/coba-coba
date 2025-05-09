@@ -1,237 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Cashier App</title>
-<style>
-  /* Reset and base */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-  }
-  body {
-    background: #f5f5f5;
-    color: #222;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 10px;
-  }
-  .app-container {
-    width: 360px;
-    height: 640px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  /* Header */
-  header {
-    background: #00796b;
-    color: white;
-    padding: 18px 24px;
-    font-size: 22px;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 1px;
-    user-select: none;
-  }
-
-  /* Product input area */
-  .product-input-section {
-    padding: 16px 20px;
-    background: #e0f2f1;
-    display: flex;
-    gap: 12px;
-  }
-  .product-input-section input[type="text"] {
-    flex-grow: 1;
-    padding: 12px 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    outline: none;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-  }
-  .product-input-section button {
-    background: #00796b;
-    border: none;
-    color: white;
-    padding: 12px 18px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,121,107,0.5);
-    transition: background 0.3s ease;
-  }
-  .product-input-section button:hover {
-    background: #004d40;
-  }
-
-  /* Items list */
-  .items-list {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px 20px;
-  }
-  .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 14px 12px;
-    border-radius: 12px;
-    background: #f0f4f3;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .item-name {
-    font-weight: 600;
-    font-size: 16px;
-    color: #00796b;
-  }
-  .item-qty-price {
-    display: flex;
-    gap: 12px;
-    font-size: 15px;
-    color: #555;
-  }
-
-  /* Total and payment section */
-  .checkout-section {
-    background: #e0f2f1;
-    padding: 20px;
-    border-top: 2px solid #00796b;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 22px;
-    font-weight: 700;
-    color: #004d40;
-  }
-  .payment-buttons {
-    display: flex;
-    gap: 16px;
-  }
-  .payment-buttons button {
-    flex: 1;
-    padding: 14px 0;
-    font-size: 18px;
-    font-weight: 700;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    color: white;
-    box-shadow: 0 3px 8px rgba(0,121,107,0.6);
-    transition: background 0.3s ease;
-  }
-  .btn-cash {
-    background: #388e3c;
-  }
-  .btn-cash:hover {
-    background: #1b5e20;
-  }
-  .btn-card {
-    background: #00796b;
-  }
-  .btn-card:hover {
-    background: #004d40;
-  }
-  
-  /* Scrollbar styling for items list */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #e0f2f1;
-    border-radius: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #00796b;
-    border-radius: 10px;
-  }
-
-</style>
-</head>
-<body>
-  import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { ArrowLeft } from "lucide-react";
-import React from "react";
-
-export default function InputProduk(): JSX.Element {
-  // Data for form fields
-  const formFields = [
-    { id: "nama", label: "Nama barang" },
-    { id: "jumlah", label: "Jumlah Barang" },
-    { id: "harga", label: "Harga Barang" },
-  ];
-
-  // Data for action buttons
-  const actionButtons = [
-    { id: "tambah", label: "Tambah" },
-    { id: "ubah", label: "Ubah" },
-    { id: "hapus", label: "Hapus" },
-  ];
-
-  return (
-    <div className="flex flex-col h-[640px] items-start bg-white">
-      {/* Header */}
-      <header className="w-full h-[62px] bg-[#00796b] flex items-center justify-center relative">
-        <div className="absolute left-2.5 top-3 flex items-center">
-          <Button variant="ghost" className="p-0 h-10 w-10 bg-[#00796b]">
-            <ArrowLeft className="h-7 w-7 text-white" />
-          </Button>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="input-produk">
+      <header class="header">
+        <div class="text-wrapper">PARFUM</div>
+        <div class="overlap-group">
+          <div class="frame"></div>
+          <div class="vector-wrapper"><img class="vector" src="img/vector.svg" /></div>
         </div>
-        <h1 className="font-bold text-white text-[22px] tracking-[1.00px] [font-family:'Roboto-Bold',Helvetica]">
-          PARFUM
-        </h1>
       </header>
-
-      {/* Form Section */}
-      <Card className="w-full rounded-none border-0 shadow-none">
-        <CardContent className="p-0">
-          <div className="w-full bg-[#e0f2f1] p-5 space-y-4">
-            {/* Form Fields */}
-            {formFields.map((field) => (
-              <div key={field.id} className="relative">
-                <Input
-                  className="h-[42px] bg-[#efefef4c] rounded-xl shadow-[inset_0px_2px_5px_#0000001a] text-[#545454] text-[14.8px] text-center [font-family:'Inter-Regular',Helvetica]"
-                  placeholder={field.label}
-                />
-              </div>
-            ))}
-
-            {/* Action Buttons */}
-            <div className="flex justify-between pt-2">
-              {actionButtons.map((button) => (
-                <Button
-                  key={button.id}
-                  className="w-[95px] h-[42px] bg-[#00796b] rounded-xl shadow-[0px_3px_8px_#00796b80] [font-family:'Roboto-SemiBold',Helvetica] font-semibold"
-                >
-                  {button.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Empty space for potential product list */}
-      <div className="w-full h-[328px]"></div>
+      <div class="div">
+        <div class="input"><div class="text-wrapper-2">Jumlah Barang</div></div>
+        <div class="div-wrapper"><div class="text-wrapper-3">Harga Barang</div></div>
+        <div class="input-2"><div class="text-wrapper-2">Nama barang</div></div>
+        <div class="button-wrapper">
+          <button class="button"><div class="text-wrapper-4">Tambah</div></button>
+        </div>
+        <div class="frame-2">
+          <button class="button"><div class="text-wrapper-5">Ubah</div></button>
+        </div>
+        <div class="frame-3">
+          <button class="button"><div class="text-wrapper-6">Hapus</div></button>
+        </div>
+      </div>
+      <div class="section-items-list"></div>
     </div>
-  );
-}
-</body>
+  </body>
 </html>
